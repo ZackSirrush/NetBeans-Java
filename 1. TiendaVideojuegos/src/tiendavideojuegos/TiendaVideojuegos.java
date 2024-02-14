@@ -1,10 +1,3 @@
-/*  Angel Isaac Nabor Torres
-    Universidad Abierta y a Distancia de México
-    Programación Orientada a Objetos I
-    Este programa ejemplificará lo mencionado a lo largo
-    del documento.
-*/
-
 package tiendavideojuegos;
 
 import java.util.Scanner;
