@@ -1,4 +1,4 @@
-#Calculadora figuras (JOptionPane)
+# Calculadora figuras (JOptionPane)
 
 Esta calculadora permite realizar diferentes operaciones cómo:
 * Calcular el área de un trapecio
