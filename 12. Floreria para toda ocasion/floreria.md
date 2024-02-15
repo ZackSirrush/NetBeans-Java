@@ -29,7 +29,7 @@ Este repositorio contiene el código fuente de un sistema de gestión para una f
 ## Instrucciones de Uso
 
 1. Clona este repositorio en tu máquina local.
-2. Descraga la base de datos aljada en este repositorio `bd/floreriaparatodaocasionbd.sql`
+2. Descraga la base de datos alojada en este repositorio `bd/floreriaparatodaocasionbd.sql`
 2. Configura la conexión a tu base de datos MySQL en el archivo `conexion.java`.
 3. Abre el proyecto en tu entorno de desarrollo Java (por ejemplo, NetBeans, Eclipse).
 4. Compila y ejecuta la aplicación.
