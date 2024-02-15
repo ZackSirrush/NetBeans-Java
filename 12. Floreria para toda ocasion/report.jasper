@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="17b035b3-a0f1-4d28-ba06-b88537d33d02">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="idEmp" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaAcept" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT pedidos.idEmp,COUNT(pedidos.idEmp) AS pedidorealiz,pedidos.fechaAcept,SEC_TO_TIME(SUM(TIME_TO_SEC(tiempotranscurr))) AS tiempodetrabajo,SUM(catalogo.comision) AS comisionesganadas,SUM(catalogo.costoArreglo)*0.01 AS bonoproduc,SUM(catalogo.comision)+SUM(catalogo.costoArreglo)*0.01 AS gananciatotal FROM pedidos INNER JOIN catalogo ON catalogo.idArreglo=pedidos.idArreglo WHERE pedidos.idEmp=$P{idEmp} GROUP BY idEmp,fechaAcept]]>
+	</queryString>
+	<field name="idEmp" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pedidorealiz" class="java.lang.Long"/>
+	<field name="fechaAcept" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tiempodetrabajo" class="java.sql.Time"/>
+	<field name="comisionesganadas" class="java.lang.Double"/>
+	<field name="bonoproduc" class="java.lang.Double"/>
+	<field name="gananciatotal" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79" uuid="ccad519e-57cf-4519-9cfe-2e869e13e3ae"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="36" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de nómina diseñadores]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="492" y="0" width="63" height="61" uuid="50cf53c6-c943-4014-8204-1e5aab257ede"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ganancia Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="415" y="0" width="79" height="61" uuid="3327e3da-1e80-4d9d-91c4-6d41510d3f64"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bono de productividad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="257" y="0" width="87" height="35" uuid="a9d9630d-31da-4a43-8971-87bec0d4174a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tiempo trabajado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="154" y="0" width="103" height="61" uuid="b7a394d1-ac3c-4c1b-ba60-57fece51ea5c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de aceptación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="0" width="93" height="61" uuid="8a0c1e66-939b-4212-a936-b53d6fc88883"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Trabajos realizados]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="344" y="0" width="71" height="61" uuid="4dba2542-8881-4eca-8924-af2e329b21c7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Comisiones ganadas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="61" height="61" uuid="2a46424b-ca4d-4bb3-9050-f8c8160794ac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID Diseñador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="257" y="35" width="28" height="26" uuid="78bfeab9-57f8-4399-a0e9-db1995173a25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hrs]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="35" width="29" height="26" uuid="57655411-25c9-48f6-ab8a-2480120bd2b2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mins]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="314" y="35" width="30" height="26" uuid="61099ef2-6288-47d6-bcc1-f8046fc5c62e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Segs]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="415" y="0" width="77" height="20" uuid="40b17d31-bbf5-4977-857f-b0f46e8154f2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{bonoproduc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="494" y="0" width="63" height="20" uuid="16753706-8961-45f9-94ba-7131c56768a3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{gananciatotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="344" y="0" width="71" height="20" uuid="db138cd3-6e22-4868-afee-f8a91d60f455"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{comisionesganadas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="154" y="0" width="103" height="20" uuid="79fa1445-27b8-43e0-880e-0517b4f6650f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fechaAcept}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="61" y="0" width="93" height="20" uuid="6576481e-d36b-4c37-b4fb-4f37569ebb5a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{pedidorealiz}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="61" height="20" uuid="18847ab3-c8ef-4275-97b3-ef63f3212f41"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{idEmp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="257" y="0" width="28" height="20" uuid="4a96cd86-c3c4-4ed4-8d07-1dc82cdf08d1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tiempodetrabajo}.getHours()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="285" y="0" width="29" height="20" uuid="5fce079b-f98b-47ef-82bd-b18002052ef0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tiempodetrabajo}.getMinutes()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="314" y="0" width="30" height="20" uuid="a48c2e0e-7c8d-48d4-92f1-8005109a1e1b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tiempodetrabajo}.getSeconds()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="435" y="22" width="80" height="20" uuid="66f47ffa-a1f1-416a-8fe7-65dea463d64a"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="22" width="40" height="20" uuid="9fb15c7e-5bad-4f28-90c5-94989431b199"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
+ent x="314" y="0" width="30" height="20" uuid="a48c2e0e-7c8d-48d4-92f1-8005109a1e1b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tiempodetrabajo}.getSeconds()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" split
