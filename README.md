@@ -32,7 +32,7 @@ Los primeros ocho proyectos del repositorio cubren una amplia gama de conceptos 
 8. **Control Escolar (CMD)**
    - Sistema para visualizar asignaturas y calificaciones de alumnos en una institución educativa.
 
-### Proyectos Destacados:
+## Proyectos Destacados:
 
 Los últimos cinco proyectos del repositorio se destacan por su complejidad y funcionalidad avanzada:
 
