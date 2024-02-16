@@ -34,7 +34,7 @@ Los primeros ocho proyectos del repositorio cubren una amplia gama de conceptos 
 
 ## Proyectos Destacados:
 
-Los últimos cinco proyectos del repositorio se destacan por su complejidad y funcionalidad avanzada:
+Los últimos cuatro proyectos del repositorio se destacan por su complejidad y funcionalidad avanzada:
 
 9. **Sistema de Restaurante con Consultas SQL**
     - Aplicación completa de restaurante que permite realizar consultas SQL a una base de datos relacional.
